@@ -10,7 +10,7 @@ import picocli.CommandLine.Option;
 class PrimeDecomposition implements Callable<Integer> {
 
 	@Option(names = { "-n", "--number" }, description = "The integer to test")
-	private final long number = 0;
+	private long number = 0;
 
 	// Takes number as parameter, better but can't launch from eclipse
 	// @Parameters(index = "0", description = "The integer to test")
@@ -18,6 +18,7 @@ class PrimeDecomposition implements Callable<Integer> {
 
 	@Override
 	public Integer call() throws Exception {
+		number = 457253;
 		ArrayList<String> primeList = new ArrayList<String>();
 		getListGreaterPrime(primeList, number);
 		System.out.print("Prime Decomposition : ");
