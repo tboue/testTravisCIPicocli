@@ -14,7 +14,7 @@ script: ant build
 before_deploy:
   - git config --local user.name "tboue-microej"
   - git config --local user.email "theophane.boue@microej.com"
-  - export NAME="picocliExampleProject 1.0"
+  - export NAME="v1.0"
   - git tag $NAME
 
 env: 
