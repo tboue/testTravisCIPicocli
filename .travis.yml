@@ -12,12 +12,16 @@ before_script:
 script: ant build
 
 before_deploy:
+  - ls -R
+  - cd bin  
+  - ls -R
   - git config --local user.name "tboue-microej"
   - git config --local user.email "theophane.boue@microej.com"
   - export GIT_TAG=$TRAVIS_BRANCH-0.1.$TRAVIS_BUILD_NUMBER
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
   - git push --tags upstream
-  - ls -R
+  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+
 
 deploy:
   provider: releases
