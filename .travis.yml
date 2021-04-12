@@ -20,7 +20,8 @@ before_deploy:
 
 deploy:
     provider: releases
-    token: $GITHUB_TOKEN
+    edge: true
+    github_token: $GITHUB_TOKEN
     file_glob: true
     file: "build/libs/*"
     skip_cleanup: true
