@@ -10,12 +10,19 @@ before_script:
   - wget https://repo1.maven.org/maven2/info/picocli/picocli/4.6.1/picocli-4.6.1.jar
   - cd ..
   - ls -R
+
+script: ant build
+
+after_script:
+  - ls -R
+  - cd ..
+  - ls -R
+
+before_deploy:
   - git config --local user.name "YOUR GIT USER NAME"
   - git config --local user.email "YOUR GIT USER EMAIL"
   - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
   - git tag $TRAVIS_TAG
-
-script: ant build
 
 deploy:
   provider: releases
@@ -24,4 +31,4 @@ deploy:
   file: bin/*
   skip_cleanup: true
   on:
-    tags: false
+    tags: true
