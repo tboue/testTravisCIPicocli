@@ -14,12 +14,15 @@ script: ant build
 before_deploy:
   - git config --local user.name "tboue-microej"
   - git config --local user.email "theophane.boue@microej.com"
-  - export NAME="v$(./primeDecomposition version -q)"
+  - export NAME="v$(../picocliExampleProject version -q)"
   - git tag $NAME
+  - SUPER_SECRET: ${{ secrets.SuperSecret }}
+
+
 
 deploy:
   - provider: releases
-    api_key: "$RELEASES_TOKEN"
+    api_key: SUPER_SECRET
     file_glob: true
     file: "build/libs/*"
     skip_cleanup: true
