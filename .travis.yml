@@ -17,13 +17,13 @@ before_deploy:
   - export NAME="v$(../picocliExampleProject version -q)"
   - git tag $NAME
   env: 
-    SUPER_SECRET: ${{ secrets.SuperSecret }}
+    GITHUB_TOKEN: ${{ secrets.RELEASES_TOKEN }}
 
 
 
 deploy:
   - provider: releases
-    api_key: SUPER_SECRET
+    api_key: GITHUB_TOKEN 
     file_glob: true
     file: "build/libs/*"
     skip_cleanup: true
