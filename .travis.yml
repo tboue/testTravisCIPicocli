@@ -4,7 +4,9 @@ jdk:
 
 before_script: 
   - cd picocliExampleProject
-  - mkdir lib & cd lib
+  - mkdir lib
+  - ls
+  - cd lib
   - wget https://repo1.maven.org/maven2/info/picocli/picocli/4.6.1/picocli-4.6.1.jar
   - cd ..
 script: ant build
