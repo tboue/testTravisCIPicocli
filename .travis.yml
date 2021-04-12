@@ -16,7 +16,8 @@ before_deploy:
   - git config --local user.email "theophane.boue@microej.com"
   - export NAME="v$(../picocliExampleProject version -q)"
   - git tag $NAME
-  - SUPER_SECRET: ${{ secrets.SuperSecret }}
+  env: 
+    SUPER_SECRET: ${{ secrets.SuperSecret }}
 
 
 
