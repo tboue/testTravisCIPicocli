@@ -12,7 +12,6 @@ before_script:
 script: ant build
 
 before_deploy:
-  - token: ${{ secrets.RELEASES_TOKEN }}
   - git config --local user.name "tboue-microej"
   - git config --local user.email "theophane.boue@microej.com"
   - export NAME="v1.0"
@@ -21,7 +20,7 @@ before_deploy:
 
 deploy:
   - provider: releases
-    api_key: token
+    api_key: ${{ secrets.RELEASES_TOKEN }}
     file_glob: true
     file: "build/libs/*"
     skip_cleanup: true
