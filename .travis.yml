@@ -17,15 +17,11 @@ before_deploy:
   - export NAME="v1.0"
   - git tag $NAME
 
-
 deploy:
-    provider: releases
-    edge: true
-    github_token: $GITHUB_TOKEN
-    file_glob: true
-    file: "build/libs/*"
-    skip_cleanup: true
-    name: $NAME
-    on:
-        branch: main
-        jdk: oraclejdk9
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file_glob: true
+  file: bin/*
+  skip_cleanup: true
+  on:
+    tags: true
