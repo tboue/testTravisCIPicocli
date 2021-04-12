@@ -10,3 +10,20 @@ before_script:
   - wget https://repo1.maven.org/maven2/info/picocli/picocli/4.6.1/picocli-4.6.1.jar
   - cd ..
 script: ant build
+
+before_deploy:
+  - git config --local user.name "tboue-microej"
+  - git config --local user.email "theophane.boue@microej.com"
+  - export NAME="v$(./primeDecomposition version -q)"
+  - git tag $NAME
+
+deploy:
+  - provider: releases
+    api_key: "$GH_TOKEN"
+    file_glob: true
+    file: "build/libs/*"
+    skip_cleanup: true
+    name: $NAME
+    on:
+        branch: main
+        jdk: oraclejdk9
