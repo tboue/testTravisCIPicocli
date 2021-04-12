@@ -14,8 +14,8 @@ script: ant build
 before_deploy:
   - git config --local user.name "tboue-microej"
   - git config --local user.email "theophane.boue@microej.com"
-  - export NAME="v1.0"
-  - git tag $NAME
+  - export GIT_TAG=$TRAVIS_BRANCH-0.1.$TRAVIS_BUILD_NUMBER
+  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
 
 deploy:
   provider: releases
@@ -24,4 +24,4 @@ deploy:
   file: bin/*
   skip_cleanup: true
   on:
-    tags: false
+    tags: true
