@@ -55,7 +55,13 @@
         </java>
     </target>
     <target name="build" description="Build all target directories for binaries as well as compile the projects classes and build a jar file from the class files.">
-		<mkdir dir="${lib.dir}" />
-		<jar destfile="${lib.dir}${ant.project.name}.jar" basedir="src/" />
-	</target>
+      <mkdir dir="build/jar"/>
+      <jar
+       destfile="build/jar/PrimeDecomposition.jar"
+       basedir="build/classes">
+         <manifest>
+            <attribute name="Main-Class" value="picocliExampleProject.PrimeDecomposition/>
+         </manifest>
+      </jar>
+   </target>
 </project>
