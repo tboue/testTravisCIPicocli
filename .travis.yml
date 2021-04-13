@@ -45,6 +45,7 @@ before_deploy:
   - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
   - git tag $TRAVIS_TAG
   - echo "$TRAVIS_TAG"  
+  - echo "$GITHUB_TOKEN"
 
 deploy:
   provider: releases
