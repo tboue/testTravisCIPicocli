@@ -28,4 +28,9 @@ deploy:
   api_key: $GITHUB_TOKEN
   file_glob: true
   file: bin/*
+  on:
+    repo: tboue/testTravisCIPicocli
+    branches: 
+      only:  
+        - main
   skip_cleanup: true
