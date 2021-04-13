@@ -58,7 +58,7 @@
       <mkdir dir="build/jar"/>
       <jar
        destfile="build/jar/PrimeDecomposition.jar"
-       basedir="build/classes">
+       basedir="bin/picocliExempleProject">
          <manifest>
             <attribute name="Main-Class" value="picocliExampleProject.PrimeDecomposition"/>
          </manifest>
