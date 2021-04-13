@@ -34,8 +34,6 @@ deploy:
      secure: lIq+SZKWrgupmrng2sPM0yBlnG4l2cOsLaGjKtdhETN5CO8dApXWu4kIl+RftXUtDfaZiSVMCPY3ypWNoxZpZErv1+mn9epDJ72jV/72eiIHPCjaNS5LuZ8+A97xVp6K0o0L2KZojk93hi9UTsuaH1b5X4vzZ/O0nMxDnqD0NHkPGUMIppF+nH5qaPR2VkHlyxKR3O2PtsIGMxAyP05GKE3Nh9B/DO2rJRWVLxxe4hcnI/7wLvwmvBhCdUgSR88NHV7CREPDOIruiJY9YwRDmFCggOjLHidtExX2k+Ee9f+uSArQOREfTkd+Pb47Kxenio4qt/z+wkTPEPqh1z8+CNnqMOLeYCNPtW1drowGPsgcxGY9pUiYOx4ffCQ6e+sX5FTZIS0JbnAieTsVZ8rZ+WhlXp3OEktLTRTU5CaUB7CCHNubGyIyDFgTRGOLhlF+MdmD3zHVhMx006fryXx10iviFk15MecOx36JnoC0rcW59QZ5eEn0+rFcLQaxtTvhHArEUWE/Us24or8bC2Xzh3t60kUMkO7ZU5NFT6fOiV6Sk7gRarNQTb3US2rPDlkH55O6ueVuYcEAAI06CsOkX5fT3OoiqnD/dCLIaBwID9nwQaRg7kmP9Hn8iJhSvExtHc8vu3ougvyMsrs3QJXg+NwUwCmM4jIjFmXmDDClnCk=
   file_glob: true
   file: bin/*
-   verbose:true
   on:
     repo: tboue/testTravisCIPicocli
     branch: main
-  skip_cleanup: true
