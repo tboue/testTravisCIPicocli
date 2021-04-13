@@ -21,8 +21,6 @@ after_script:
 before_deploy:
   - git config --local user.name "tboue"
   - git config --local user.email "theophane.boue@microej.com"
-  - export NAME="v1.0"
-  - git tag $NAME
 
 deploy:
   provider: releases
