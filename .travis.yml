@@ -30,7 +30,5 @@ deploy:
   file: bin/*
   on:
     repo: tboue/testTravisCIPicocli
-    branches: 
-      only:  
-        - main
+    branch: main
   skip_cleanup: true
