@@ -56,7 +56,7 @@
         </java>
     </target>
     <target name="buildjar" description="build a jar file from the class files.">
-      <jar destfile="executables/primeDecomposition.jar" basedir="bin">
+      <jar destfile="executables/primeDecomposition.jar" basedir="bin/picocliExampleProject">
         <manifest>
            <attribute name="Main-Class" value="picocliExempleProject.PrimeDecomposition"/>
         </manifest>
