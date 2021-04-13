@@ -54,11 +54,9 @@
             <classpath refid="picocliExampleProject.classpath"/>
         </java>
     </target>
-    <target name="buildjar" description="compile the projects classes and build a jar file from the class files.">
-      <mkdir dir="build/jar"/>
-      <jar
-       destfile="build/jar/PrimeDecomposition.jar"
-       basedir="bin/picocliExempleProject">
+    <target name="buildjar" description="build a jar file from the class files.">
+      <mkdir dir="jar"/>
+      <jar destfile="jar/PrimeDecomposition.jar" basedir="bin/picocliExempleProject">
          <manifest>
             <attribute name="Main-Class" value="picocliExampleProject.PrimeDecomposition"/>
          </manifest>
