@@ -17,12 +17,13 @@ after_script:
   - ls -R
   - cd ..
   - ls -R
-
+env:$TRAVIS_DEPLOY_TOKEN=$GITHUB_TOKEN
 before_deploy:
   - git config --local user.name "tboue"
   - git config --local user.email "theophane.boue@microej.com"
   - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
   - git tag $TRAVIS_TAG
+  - echo $TRAVIS_TAG
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
