@@ -35,6 +35,11 @@
             <src path="src"/>
             <classpath refid="picocliExampleProject.classpath"/>
         </javac>
+  	<jar destfile="executables/primeDecomposition.jar" basedir="bin/picocliExampleProject/">
+        <manifest>
+           <attribute name="Main-Class" value="picocliExempleProject.PrimeDecomposition"/>
+        </manifest>
+	</jar>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
     <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
@@ -55,11 +60,4 @@
             <classpath refid="picocliExampleProject.classpath"/>
         </java>
     </target>
-    <target name="buildjar" description="build a jar file from the class files.">
-      <jar destfile="executables/primeDecomposition.jar" basedir="bin/picocliExampleProject">
-        <manifest>
-           <attribute name="Main-Class" value="picocliExempleProject.PrimeDecomposition"/>
-        </manifest>
-	</jar>
-   </target>
 </project>
