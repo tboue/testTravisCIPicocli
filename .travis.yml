@@ -21,8 +21,8 @@ after_script:
 before_deploy:
   - git config --local user.name "tboue"
   - git config --local user.email "theophane.boue@microej.com"
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-  - git tag $TRAVIS_TAG main
+  - export NAME="v1.0"
+  - git tag $NAME
 
 deploy:
   provider: releases
