@@ -3,8 +3,7 @@ jdk:
 - oraclejdk9
 env:
   global:
-    secure: "PIDN7/ZB2y0yd+bT8/fut3mHuqVP+aClc9sygWFcBARr3JFRKmwHB/0tumTHsM8/iSzbNSEFnYQhmheQhawq8jPEEWqSn91qNbS89sWM20x9lI2HAcAcubDszcQgnuk3SZ6B781ONaWET0ZC2dIGm0gDD1IKCW+rWd3bKgxxGXXRAMP5O7W5wzlt55D4WNc1Ln3QUthDa/fm2HoP797RQ3s18qFFZnhN5PgQ4C/z/ova/NQOfrsqo+x05peIMXuD3ZyFkvhEFHJmhGmy4MK011rfzex9FyNhAMHJ3dXdjdb4KAakAodPqUfPfpaSpYAXFtRHKsGH/1+Dn18CN+70OFQzeBywgHJTqXi/I4jExnOsncsFvR90Q3wUMmYVKUfWWL/Ux5vgMrrhSZGPaFFXyCjwwsWK6NuSHBvGHyyB62PE6Ru6uwiIWCF8hrLo99evr8kx9uywd+wNlCMI2S/Rlgws1FaNkhMNZTDwnVIgLxVTtmMzfP88PAYVZ2yA6kWAhzmz5R7WAZ8e/CPEty50c7ele5pa8pnZDvL8D57PgkfGY3bJkf4gDs+2ig6/XKtkGH5vcd1dkgi2CGZ4mSrrKa2Xzp7ufwgthP1xVOCV0f9rw6zKLX/jCQbbiplNtYN3KD60hT0WY4JYR85p/Ppy+YA5zFdl2e4wqdlLvu6xhKE="  
-
+      secure: "BSMkdLmdxkIlMugpylqogMeOlYTiBbX1FJMHiE4FOes2aQIAJODT980cxMy0/rnn8AGrMYTD6WGqA3Q+dXHVcclBHEtiwkGN5KiQx5T0FLjHZEYMkzirsqv4dNoaZP2Fnc35cP2nU5V5aXC033idzvltrALLGkzsx5mw0gkJ1tIuR+MiaNAfMV46hgj4fSBxS57IJdoOmVgFzzA5QAF75xKgSSrEqfxAL5wRBPPdlSlvHXF4LMO5wFpjDvuAXxEkzO4FxwgPjXnLalpP4JZ2KsBXjMocNT5Wh4Ksju0Jnl/PPZ2AvMJgTE4Ktl89yF2kb0b7fT+nza9dEmV5fdqcrLjUj/5OZ7h5Jc95+6grQj0ZfW7VNQljqSTywTeIGvCCkioUBOb7ebeN23sQ9Lix3rVIg5f5BX00inuXmGD/rhsJ6XcNS1f8Vf18g4Mr6XB8oDV3z/7AIGGUwhQp8nN/9oGuZVmMYQ9m97fQ+xzlxGHEhSFcToGBQ+s7FCNipc6mAGDWcOz+MXlUOCCtDt4x/wqlNaQ1/UCX+FOC7M4eLuYAsrhGhjC19eFItdkRjvkm5tWiOxxUm7CING/VtUcojhA6KkG74JQ6b96PvdtWJ6bQJISnQ2IJUwsMBp1sbWFlXrICmACsIso6uy1ls1ki2hRES68jrLLjCAMLHSOLTKk="                                                                   
 install:
   # Install GraalVM with SDKMAN
   - curl -s "https://get.sdkman.io" | bash
@@ -48,7 +47,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: "PIDN7/ZB2y0yd+bT8/fut3mHuqVP+aClc9sygWFcBARr3JFRKmwHB/0tumTHsM8/iSzbNSEFnYQhmheQhawq8jPEEWqSn91qNbS89sWM20x9lI2HAcAcubDszcQgnuk3SZ6B781ONaWET0ZC2dIGm0gDD1IKCW+rWd3bKgxxGXXRAMP5O7W5wzlt55D4WNc1Ln3QUthDa/fm2HoP797RQ3s18qFFZnhN5PgQ4C/z/ova/NQOfrsqo+x05peIMXuD3ZyFkvhEFHJmhGmy4MK011rfzex9FyNhAMHJ3dXdjdb4KAakAodPqUfPfpaSpYAXFtRHKsGH/1+Dn18CN+70OFQzeBywgHJTqXi/I4jExnOsncsFvR90Q3wUMmYVKUfWWL/Ux5vgMrrhSZGPaFFXyCjwwsWK6NuSHBvGHyyB62PE6Ru6uwiIWCF8hrLo99evr8kx9uywd+wNlCMI2S/Rlgws1FaNkhMNZTDwnVIgLxVTtmMzfP88PAYVZ2yA6kWAhzmz5R7WAZ8e/CPEty50c7ele5pa8pnZDvL8D57PgkfGY3bJkf4gDs+2ig6/XKtkGH5vcd1dkgi2CGZ4mSrrKa2Xzp7ufwgthP1xVOCV0f9rw6zKLX/jCQbbiplNtYN3KD60hT0WY4JYR85p/Ppy+YA5zFdl2e4wqdlLvu6xhKE="  
+    secure: "BSMkdLmdxkIlMugpylqogMeOlYTiBbX1FJMHiE4FOes2aQIAJODT980cxMy0/rnn8AGrMYTD6WGqA3Q+dXHVcclBHEtiwkGN5KiQx5T0FLjHZEYMkzirsqv4dNoaZP2Fnc35cP2nU5V5aXC033idzvltrALLGkzsx5mw0gkJ1tIuR+MiaNAfMV46hgj4fSBxS57IJdoOmVgFzzA5QAF75xKgSSrEqfxAL5wRBPPdlSlvHXF4LMO5wFpjDvuAXxEkzO4FxwgPjXnLalpP4JZ2KsBXjMocNT5Wh4Ksju0Jnl/PPZ2AvMJgTE4Ktl89yF2kb0b7fT+nza9dEmV5fdqcrLjUj/5OZ7h5Jc95+6grQj0ZfW7VNQljqSTywTeIGvCCkioUBOb7ebeN23sQ9Lix3rVIg5f5BX00inuXmGD/rhsJ6XcNS1f8Vf18g4Mr6XB8oDV3z/7AIGGUwhQp8nN/9oGuZVmMYQ9m97fQ+xzlxGHEhSFcToGBQ+s7FCNipc6mAGDWcOz+MXlUOCCtDt4x/wqlNaQ1/UCX+FOC7M4eLuYAsrhGhjC19eFItdkRjvkm5tWiOxxUm7CING/VtUcojhA6KkG74JQ6b96PvdtWJ6bQJISnQ2IJUwsMBp1sbWFlXrICmACsIso6uy1ls1ki2hRES68jrLLjCAMLHSOLTKk="                                                                   
   file_glob: true
   file: bin/*
   skip_cleanup: true
