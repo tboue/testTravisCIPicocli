@@ -18,7 +18,6 @@ class PrimeDecomposition implements Callable<Integer> {
 
 	@Override
 	public Integer call() throws Exception {
-		number = 457253;
 		ArrayList<String> primeList = new ArrayList<String>();
 		getListGreaterPrime(primeList, number);
 		System.out.print("Prime Decomposition : ");
