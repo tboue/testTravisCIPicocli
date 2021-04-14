@@ -35,7 +35,7 @@
             <src path="src"/>
             <classpath refid="picocliExampleProject.classpath"/>
         </javac>
-  	<jar destfile="executables/primeDecomposition.jar" basedir="bin/picocliExampleProject/**">
+  	<jar destfile="executables/primeDecomposition.jar" basedir="src/**">
          <manifest>
            <attribute name="Main-Class" value="picocliExempleProject.PrimeDecomposition"/>
         </manifest>
