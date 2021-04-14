@@ -37,7 +37,7 @@ script:
    - echo "graal build"
    - cd executables
    - mkdir -p META-INF/native-image
-   - java -agentlib:native-image-agent=config-output-dir=META-INF/native-image -jar primeDecomposotion.jar 
+   - java -agentlib:native-image-agent=config-output-dir=META-INF/native-image -jar primeDecomposition.jar 
    - native-image --no-fallback -jar primeDecomposition.jar   
    - cd .. & cd ..
    - ls -R
