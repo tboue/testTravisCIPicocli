@@ -19,5 +19,5 @@
             <zipfileset excludes="META-INF/*.SF" src="./lib/picocli-4.6.1.jar"/>
         </jar>
     </target>
-    </target depends="create_run_jar" name="build">
+    <target depends="create_run_jar" name="build" />
 </project>
