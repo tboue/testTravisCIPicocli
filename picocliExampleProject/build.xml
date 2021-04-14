@@ -40,7 +40,7 @@
         <jar destfile="executables/primeDecomposition.jar" filesetmanifest="mergewithoutmain">
             <manifest>
                 <attribute name="Main-Class" value="picocliExampleProject.PrimeDecomposition"/>
-                <attribute name="Class-Path" value="."/>
+                <attribute name="Class-Path" value="./picocliExampleProject"/>
             </manifest>
             <fileset dir="./bin"/>
             <zipfileset excludes="META-INF/*.SF" src="lib/picocli-4.6.1.jar"/>
