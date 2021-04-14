@@ -32,15 +32,16 @@ before_script:
   - ls -R
 
 script: 
-   - echo "build \.java"
-   - ant build
-   - echo "graal build"
-   - cd executables
-   - mkdir -p META-INF/native-image
-   - java -agentlib:native-image-agent=config-output-dir=META-INF/native-image -jar primeDecomposition.jar 
-   - native-image --no-fallback -jar primeDecomposition.jar   
-   - cd .. & cd ..
-   - ls -R
+  - echo "build \.java"
+  - ant build
+  - echo "graal build"
+  - cd executables
+  - mkdir -p META-INF/native-image
+  - java primeDecomposition.jar -n 34321
+  - java -agentlib:native-image-agent=config-output-dir=META-INF/native-image -jar primeDecomposition.jar 
+  - native-image --no-fallback -jar primeDecomposition.jar   
+  - cd .. & cd ..
+  - ls -R
 
 before_deploy:
   - git config --local user.name "tboue"
