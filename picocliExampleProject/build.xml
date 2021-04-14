@@ -15,7 +15,7 @@
             </fileset>
         </copy>
     </target>
-    <target name="build">
+    <target depends="init" name="build">
         <jar destfile="${dir.jarfile}/primeDecomposition.jar" filesetmanifest="mergewithoutmain">
             <manifest>
                 <attribute name="Main-Class" value="picocliExampleProject.PrimeDecomposition"/>
