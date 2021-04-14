@@ -37,12 +37,12 @@
         </javac>
     </target>
     <target name="create_run_jar">
-        <jar destfile="${dir.jarfile}/primeDecomposition.jar" filesetmanifest="mergewithoutmain">
+        <jar destfile="executables/primeDecomposition.jar" filesetmanifest="mergewithoutmain">
             <manifest>
                 <attribute name="Main-Class" value="picocliExampleProject.PrimeDecomposition"/>
                 <attribute name="Class-Path" value="."/>
             </manifest>
-            <fileset dir="${dir.buildfile}/bin"/>
+            <fileset dir="./bin"/>
             <zipfileset excludes="META-INF/*.SF" src="lib/picocli-4.6.1.jar"/>
         </jar>
     </target>
