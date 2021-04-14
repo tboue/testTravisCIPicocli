@@ -35,10 +35,7 @@
             <src path="src"/>
             <classpath refid="picocliExampleProject.classpath"/>
         </javac>
-  	<jar destfile="executables/primeDecomposition.jar" basedir="src/**">
-         <manifest>
-           <attribute name="Main-Class" value="picocliExempleProject.PrimeDecomposition"/>
-        </manifest>
+  	<jar destfile="executables/primeDecomposition.jar" basedir="bin/picocliExampleProject/**">
 	</jar>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
