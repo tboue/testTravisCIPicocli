@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="create_run_jar" name="Create Runnable Jar for Project picocliExampleProject">
+<project basedir="."  default="build" name="Create Runnable Jar for Project picocliExampleProject">
     <!--this file was created by Eclipse Runnable JAR Export Wizard-->
     <!--ANT 1.7 is required                                        -->
     <!--define folder properties-->
     <property name="dir.buildfile" value="."/>
     <property name="dir.jarfile" value="executables"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
     <target name="init">
         <mkdir dir="bin"/>
 	<mkdir dir="${dir.jarfile}"/> 
@@ -15,7 +17,14 @@
             </fileset>
         </copy>
     </target>
-    <target depends="init" name="build">
+   <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="picocliExampleProject.classpath"/>
+        </javac>
+    </target>
+    <target name="create_run_jar">
         <jar destfile="${dir.jarfile}/primeDecomposition.jar" filesetmanifest="mergewithoutmain">
             <manifest>
                 <attribute name="Main-Class" value="picocliExampleProject.PrimeDecomposition"/>
@@ -25,4 +34,5 @@
             <zipfileset excludes="META-INF/*.SF" src="lib/picocli-4.6.1.jar"/>
         </jar>
     </target>
+    <target depends="build-project,create_run_jar" name="build"/>
 </project>
