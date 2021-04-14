@@ -15,5 +15,14 @@
             </fileset>
         </copy>
     </target>
-   
+    <target name="build">
+        <jar destfile="${dir.jarfile}/primeDecomposition.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="picocliExampleProject.PrimeDecomposition"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="${dir.buildfile}/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/picocli-4.6.1.jar"/>
+        </jar>
+    </target>
 </project>
