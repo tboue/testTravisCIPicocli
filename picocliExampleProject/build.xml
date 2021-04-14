@@ -7,7 +7,7 @@
     <property name="dir.jarfile" value="executables"/>
     <target name="init">
         <mkdir dir="bin"/>
-	<mkdir dir="executables"/> 
+	<mkdir dir="${dir.jarfile}"/> 
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="src">
                 <exclude name="**/*.launch"/>
@@ -15,14 +15,5 @@
             </fileset>
         </copy>
     </target>
-    <target name="create_run_jar">
-        <jar destfile="${dir.jarfile}/primeDecomposition.jar" filesetmanifest="mergewithoutmain">
-            <manifest>
-                <attribute name="Main-Class" value="picocliExampleProject.PrimeDecomposition"/>
-                <attribute name="Class-Path" value="."/>
-            </manifest>
-            <fileset dir="${dir.buildfile}/bin"/>
-            <zipfileset excludes="META-INF/*.SF" src="lib/picocli-4.6.1.jar"/>
-        </jar>
-    </target>
+   
 </project>
