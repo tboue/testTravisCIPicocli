@@ -11,7 +11,7 @@ class PrimeDecomposition implements Callable<Integer> {
 
 	//Takes number as parameter, better but can't launch from eclipse
 	@Parameters(index = "0", description = "The integer to test")
-	private final int number = 0;
+	private int number = 0;
 
 	@Override
 	public Integer call() throws Exception {
