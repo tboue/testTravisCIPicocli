@@ -1,3 +1,4 @@
+os: windows
 language: java
 jdk:
 - oraclejdk9
@@ -8,17 +9,22 @@ env:
 
 install:
   # Install GraalVM with SDKMAN
-  - curl -s "https://get.sdkman.io" | bash
-  - source "$HOME/.sdkman/bin/sdkman-init.sh"
+  - choco install zip unzip
+  - choco install visualstudio2017-workload-vctools
+  - curl -sL "https://get.sdkman.io" | bash
+  - mkdir -p "$HOME/.sdkman/etc/"
+  - echo sdkman_auto_answer=true > "$HOME/.sdkman/etc/config"
+  - echo sdkman_auto_selfupdate=true >> "$HOME/.sdkman/etc/config"
+  - "source $HOME/.sdkman/bin/sdkman-init.sh"
   - sdk install java 20.0.0.r11-grl
   # Check if GraalVM was installed successfully
   - java -version
   # Install Maven, that uses GraalVM for later builds
-  - sdk install maven
+  # - sdk install maven
   # Show Maven using GraalVM JDK
-  - mvn --version
+  # - mvn --version
   # Install GraalVM Native Image
-  - gu install native-image
+  - gu.cmd install native-image
   # Check if Native Image was installed properly
   - native-image --version
 
@@ -36,6 +42,7 @@ script:
   - ant build
   - echo "graal build"
   - cd executables
+  - native-image --no-fallback -jar primeDecomposition.jar 
   - cd .. & cd ..
   - ls -R
 
