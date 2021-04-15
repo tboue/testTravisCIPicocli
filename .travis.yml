@@ -9,6 +9,7 @@ install:
   # Install GraalVM with SDKMAN
   - choco install zip unzip
   - choco install visualstudio2017-workload-vctools
+  - choco install ant
   - curl -sL "https://get.sdkman.io" | bash
   - mkdir -p "$HOME/.sdkman/etc/"
   - echo sdkman_auto_answer=true > "$HOME/.sdkman/etc/config"
