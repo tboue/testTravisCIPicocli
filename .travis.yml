@@ -24,7 +24,7 @@ install:
   # Install GraalVM Native Image
   - gu.cmd install native-image
   # Check if Native Image was installed properly
-  - native-image --version
+  - native-image.cmd --version
 
 before_script: 
   - cd picocliExampleProject
@@ -41,8 +41,7 @@ script:
   - echo "graal build"
   - cd executables
   - mkdir -p META-INF/native-image
-  - java -agentlib:native-image-agent=config-output-dir=META-INF/native-image -jar primeDecomposition.jar
-  - native-image.cmd --no-fallback -jar primeDecomposition.jar 
+  - ./build.bat 
   - cd .. & cd ..
   - ls -R
 
