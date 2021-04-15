@@ -19,9 +19,9 @@ install:
   # Check if GraalVM was installed successfully
   - java -version
   # Install Maven, that uses GraalVM for later builds
-  # - sdk install maven
+   - sdk install maven
   # Show Maven using GraalVM JDK
-  # - mvn --version
+   - mvn --version
   # Install GraalVM Native Image
   - gu.cmd install native-image
   # Check if Native Image was installed properly
@@ -43,6 +43,7 @@ script:
   - echo "graal build"
   - cd executables
   - mkdir -p META-INF/native-image
+  - ls
   - ./build.bat 
   - cd .. & cd ..
   - ls -R
