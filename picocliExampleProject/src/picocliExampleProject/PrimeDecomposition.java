@@ -4,14 +4,14 @@ import java.util.concurrent.Callable;
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
-import picocli.CommandLine.Option;
+import picocli.CommandLine.Parameters;
 
 @Command(name = "primeDecomposition", mixinStandardHelpOptions = true, version = "checksum 4.0", description = "Prints the prime Decomposition of the given parameter")
 class PrimeDecomposition implements Callable<Integer> {
 
-	 //Takes number as parameter, better but can't launch from eclipse
-	 @Parameters(index = "0", description = "The integer to test")
-	 private int number = 0;
+	//Takes number as parameter, better but can't launch from eclipse
+	@Parameters(index = "0", description = "The integer to test")
+	private final int number = 0;
 
 	@Override
 	public Integer call() throws Exception {
