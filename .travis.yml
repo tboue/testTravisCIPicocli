@@ -1,6 +1,5 @@
 os: windows
-jdk:
-- oraclejdk9
+language: shell
 
 env:
   global:
