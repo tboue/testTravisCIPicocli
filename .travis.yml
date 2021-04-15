@@ -44,7 +44,7 @@ script:
   - cd executables
   - mkdir -p META-INF/native-image
   - ls
-  - cmd.exe /C '"C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" Get-Location
+  - cmd.exe /C '"C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" Get-Location'
   - ./build.bat 
   - cd .. & cd ..
   - ls -R
