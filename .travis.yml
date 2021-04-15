@@ -19,9 +19,9 @@ install:
   # Check if GraalVM was installed successfully
   - java -version
   # Install Maven, that uses GraalVM for later builds
-   - sdk install maven
+  - sdk install maven
   # Show Maven using GraalVM JDK
-   - mvn --version
+  - mvn --version
   # Install GraalVM Native Image
   - gu.cmd install native-image
   # Check if Native Image was installed properly
@@ -30,7 +30,7 @@ install:
 before_script: 
   - cd picocliExampleProject
   - mkdir lib
-  - ls
+  - ls -R
   - cd lib
   - wget https://repo1.maven.org/maven2/info/picocli/picocli/4.6.1/picocli-4.6.1.jar
   - cd ..
