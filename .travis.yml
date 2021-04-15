@@ -37,6 +37,7 @@ before_script:
 
 script: 
   - echo "build \.java"
+  - echo $(ant -version)
   - ant build
   - echo "graal build"
   - cd executables
