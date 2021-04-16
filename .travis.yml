@@ -43,8 +43,8 @@ script:
   - cd executables
   - mkdir -p META-INF/native-image
   - cd ..
-  - ls -R
-  - ./build.bat 
+  - ./build.bat
+  - cd executables
   - sha256sum primeDecomposition.jar > sha256sumJar.txt
   - sha256sum primeDecomposition.exe > sha256sumExe.txt
   - ls -R
