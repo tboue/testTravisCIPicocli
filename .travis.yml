@@ -40,6 +40,10 @@ script:
   - echo "build \.java"
   - echo $(ant -version)
   - ant build
+  - cd executables
+  - mkdir -p META-INF/native-image
+  - cd ..
+  - ls -R
   - echo "graal build"
   - ./build.bat 
   - ls -R
