@@ -44,9 +44,9 @@ script:
   - mkdir -p META-INF/native-image
   - cd ..
   - ls -R
-  - echo "graal build"
   - ./build.bat 
-  - echo "ended"
+  - sha256sum primeDecomposition.jar > sha256sumJar.txt
+  - sha256sum primeDecomposition.exe > sha256sumExe.txt
   - ls -R
 
 before_deploy:
