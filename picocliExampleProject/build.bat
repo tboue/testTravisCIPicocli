@@ -1,6 +1,6 @@
 echo "test"
 cd executables
-mkdir META-INF/native-image
+mkdir -p META-INF/native-image
 ls -R
 java -agentlib:native-image-agent=config-output-dir=META-INF/native-image -jar primeDecomposition.jar
 ls -R
