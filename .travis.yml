@@ -46,6 +46,7 @@ script:
   - ls -R
   - echo "graal build"
   - ./build.bat 
+  - echo "ended"
   - ls -R
 
 before_deploy:
