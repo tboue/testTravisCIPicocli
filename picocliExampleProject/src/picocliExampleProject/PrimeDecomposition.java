@@ -30,7 +30,7 @@ class PrimeDecomposition implements Callable<Integer> {
 		double rootToTest = Math.sqrt(numberToTest);
 		double i = 2;
 		double division = (numberToTestDBL / i);
-		while ((rootToTest < division) && isPrime) {
+		while ((rootToTest <= division) && isPrime) {
 			division = (numberToTestDBL / i);
 			if (division % 1 == 0) {
 				isPrime = false;
