@@ -41,11 +41,7 @@ script:
   - echo $(ant -version)
   - ant build
   - echo "graal build"
-  - cd executables
-  - mkdir -p META-INF/native-image
-  - ls
-  - cd .. & cd ..  
-  # ./build.bat 
+  - ./build.bat 
   - ls -R
 
 before_deploy:
