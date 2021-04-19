@@ -1,61 +1,47 @@
 os: windows
 language: shell
-
-env:
-  global:
-      secure: H0Y9wMRVVplDrzt7QCfHfrZ6SknAODJawqaHYA1rrC1itXbxe8WzQBenWav2iPZWrDPZDEV/Rtf/OqWHjWFIDrdCb9P+fE5DU8nNt2vmVP68O+Xr1r0+9L/2onT2wWGZo9w6ib3QJbrIWLrkONwzH9BK3hWU3P+6EdhFdn/TTNxQYIKi+XXf3LwDIuH4ekguRtZ3xIyBgy0Wf4BYhBuxU9UHruViVu72jwGj4PTNSet1Ga/XVDRJqsEYvMzvN/st0q5xyXPIhec61jUt6G+QfVk85bSApW3xXmbScklnuv9hnBQ4o1x69sUWxjzeaR/EJxQzihzB+js9qc9Ryjh555ZG3CevUUT6I2NhpfnpRzq5dpQ8O+8Ca9NQmgzo/N4Ersjz5eSMS+jHa+cmxY7/c1I0pcym1rw/MdEmi02cKZ/VnbQaZXmQqEGAdQRzDVQxP0hAE+kgR3R6sKoUjPC1xSE57uodpw1kWJl9Qo6X8poxG8/aTQePl0Q+QLsvSMtuIBaYOf/UwnxOnT80CDDbew7Y+HZG4pnaIzgWfv6KaG2O1yL4iKzSXQhiKMgXTCEIyC+6rGjBxX6S1Pvcy2eyelef8v5y++b9MYBBh1dwCafx4tgfLwoPAPCsloQBjmxeM2A1ee4Z/AIsf/18aRdmtGd98mo6z9Ruv38buwjBMNc=
-
 install:
-  # Install GraalVM with SDKMAN
-  - choco install zip unzip
-  - choco install visualstudio2017-workload-vctools
-  - choco install ant
-  - curl -sL "https://get.sdkman.io" | bash
-  - mkdir -p "$HOME/.sdkman/etc/"
-  - echo sdkman_auto_answer=true > "$HOME/.sdkman/etc/config"
-  - echo sdkman_auto_selfupdate=true >> "$HOME/.sdkman/etc/config"
-  - "source $HOME/.sdkman/bin/sdkman-init.sh"
-  - sdk install java 20.0.0.r11-grl
-  # Check if GraalVM was installed successfully
-  - java -version
-  # Install GraalVM Native Image
-  - gu.cmd install native-image
-  # Check if Native Image was installed properly
-  - native-image.cmd --version
-
-before_script: 
-  - cd picocliExampleProject
-  - mkdir lib
-  - cd lib
-  - wget https://repo1.maven.org/maven2/info/picocli/picocli/4.6.1/picocli-4.6.1.jar
-  - cd ..
-
-script: 
-  - echo "building jar"
-  - echo $(ant -version)
-  - ant build
-  - ./build.bat
-  - echo "computing checksums"
-  - cd executables
-  - sha256sum primeDecomposition.jar > sha256sumJar.txt
-  - sha256sum primeDecomposition.exe > sha256sumExe.txt
-
+- choco install zip unzip
+- choco install visualstudio2017-workload-vctools
+- choco install ant
+- curl -sL "https://get.sdkman.io" | bash
+- mkdir -p "$HOME/.sdkman/etc/"
+- echo sdkman_auto_answer=true > "$HOME/.sdkman/etc/config"
+- echo sdkman_auto_selfupdate=true >> "$HOME/.sdkman/etc/config"
+- source $HOME/.sdkman/bin/sdkman-init.sh
+- sdk install java 20.0.0.r11-grl
+- java -version
+- gu.cmd install native-image
+- native-image.cmd --version
+before_script:
+- cd picocliExampleProject
+- mkdir lib
+- cd lib
+- wget https://repo1.maven.org/maven2/info/picocli/picocli/4.6.1/picocli-4.6.1.jar
+- cd ..
+script:
+- echo "building jar"
+- echo $(ant -version)
+- ant build
+- "./build.bat"
+- echo "computing checksums"
+- cd executables
+- sha256sum primeDecomposition.jar > sha256sumJar.txt
+- sha256sum primeDecomposition.exe > sha256sumExe.txt
 after_script:
-  - cd ..
-  - ls -R
-
+- cd ..
+- ls -R
 before_deploy:
-  - git config --local user.name "tboue"
-  - git config --local user.email "theophane.boue@microej.com"
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-  - git tag $TRAVIS_TAG
-  - echo "$TRAVIS_TAG"  
-
+- git config --local user.name "tboue"
+- git config --local user.email "theophane.boue@microej.com"
+- export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+- git tag $TRAVIS_TAG
+- echo "$TRAVIS_TAG"
 deploy:
   provider: releases
-  api_key: $GITHUB_KEY 
+  api_key: "$GITHUB_SECURE_TOKEN"
   file_glob: true
-  file: 
+  file:
   - executables/**.exe
   - executables/**.jar
   - executables/**.txt
@@ -63,3 +49,6 @@ deploy:
   on:
     repo: tboue/testTravisCIPicocli
     branch: main
+env:
+  global:
+    secure: Qf0SKGeyoc2Mwp99ZNhiQQRosaGqUqVTgo/+jjAY1RU0L2ltA9lCHxcFJtE+7idL9Cj8e3zyiwfJWRhanoq+mDfNjojbdsfQyzocS9MNP6qTGbT/f4h1I3xd/sQrtxJmINTGI70A3oPeKifI5RvUe2y1a7QIyy0XVK3dBmpiXo5deWwfPuE4gmy9xia385/Y/KeMaZQ+fDvS109zAGC6bJHhGt/LFoshlcXe4t9/f9RntGl4SKd9MAJpSjFTRu/xrcS8vHYoEbcDMIXFENX2uD3NN/iSTckB+4BTgnzkuD8WgIw+3tBYVRUCg/3UHrAJWc/Zh3jPGZA5gtx6rt1mdipXk8kruDx93YZv9EZBiUqc0RK708LNTS2gFz6BN8/6Y6LploIYmH/37JbO1ls3QGN5+DVyy9po8FdqH7BKp3o4XOxX4hEa8ZU8fTMcjHBpiFw8YeYVGksL3fwz3RllvdxgGLJj2uyalmwXqqbZaMLvLQS8RfMNPNhlcE9FUizLW84C9YxcyAgX93o9kPoTW9JiWHCBUGQG5nFKlRgSahkuym5FNbZitfRogj+vtBuHWvJ/jyCX9qdqR4LIKrqXS7USVQq78LlhDsiK89sRkr7P6rB+B140kNcsHgPynLbhGEdlCCu4rJJhHXSqYVHcZpFyHf50S2vMhDj/D42d6cI=
