@@ -2,7 +2,7 @@
 
 ## Outline ##
 
-The goal of this project is to propose a working [TRAVIS CI](https://travis-ci.com/) configuration that will compile a java project into a jar and a windows executable thought [graalVM](https://www.graalvm.org/docs/getting-started/) compilation. The command line interactions are created by using [picocli](https://picocli.info/).   
+The goal of this project is to propose a working [TRAVIS CI](https://travis-ci.com/) configuration that will compile a java project into a jar and a windows executable through [graalVM](https://www.graalvm.org/docs/getting-started/) compilation. The command line interactions are created by using [picocli](https://picocli.info/).   
 
 ## How to use ##
 

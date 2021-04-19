@@ -8,6 +8,7 @@ install:
 - mkdir -p "$HOME/.sdkman/etc/"
 - echo sdkman_auto_answer=true > "$HOME/.sdkman/etc/config"
 - echo sdkman_auto_selfupdate=true >> "$HOME/.sdkman/etc/config"
+- sed -i '1s/^/set -x /' $HOME/.sdkman/bin/sdkman-init.sh
 - source $HOME/.sdkman/bin/sdkman-init.sh
 - sdk install java 20.0.0.r11-grl
 - java -version
