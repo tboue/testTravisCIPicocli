@@ -28,9 +28,8 @@ script:
 - cd executables
 - sha256sum primeDecomposition.jar > sha256sumJar.txt
 - sha256sum primeDecomposition.exe > sha256sumExe.txt
-after_script:
-- cd ..
 - ls -R
+
 before_deploy:
 - git config --local user.name "tboue"
 - git config --local user.email "theophane.boue@microej.com"
