@@ -39,8 +39,6 @@ script:
 before_deploy:
 - git config --local user.name "tboue"
 - git config --local user.email "theophane.boue@microej.com"
-- git commit --amend -m "test changing release message"
-- git push
 
 deploy:
   provider: releases
