@@ -14,12 +14,14 @@ install:
 - java -version
 - gu.cmd install native-image
 - native-image.cmd --version
+
 before_script:
 - cd picocliExampleProject
 - mkdir lib
 - cd lib
 - wget https://repo1.maven.org/maven2/info/picocli/picocli/4.6.1/picocli-4.6.1.jar
 - cd ..
+
 script:
 - echo "building jar"
 - echo $(ant -version)
@@ -38,6 +40,7 @@ before_deploy:
 - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
 - git tag $TRAVIS_TAG
 - echo "$TRAVIS_TAG"
+
 deploy:
   provider: releases
   api_key: "$GITHUB_SECURE_TOKEN"
@@ -50,6 +53,7 @@ deploy:
   on:
     repo: tboue/testTravisCIPicocli
     branch: main
+
 env:
   global:
     secure: Qf0SKGeyoc2Mwp99ZNhiQQRosaGqUqVTgo/+jjAY1RU0L2ltA9lCHxcFJtE+7idL9Cj8e3zyiwfJWRhanoq+mDfNjojbdsfQyzocS9MNP6qTGbT/f4h1I3xd/sQrtxJmINTGI70A3oPeKifI5RvUe2y1a7QIyy0XVK3dBmpiXo5deWwfPuE4gmy9xia385/Y/KeMaZQ+fDvS109zAGC6bJHhGt/LFoshlcXe4t9/f9RntGl4SKd9MAJpSjFTRu/xrcS8vHYoEbcDMIXFENX2uD3NN/iSTckB+4BTgnzkuD8WgIw+3tBYVRUCg/3UHrAJWc/Zh3jPGZA5gtx6rt1mdipXk8kruDx93YZv9EZBiUqc0RK708LNTS2gFz6BN8/6Y6LploIYmH/37JbO1ls3QGN5+DVyy9po8FdqH7BKp3o4XOxX4hEa8ZU8fTMcjHBpiFw8YeYVGksL3fwz3RllvdxgGLJj2uyalmwXqqbZaMLvLQS8RfMNPNhlcE9FUizLW84C9YxcyAgX93o9kPoTW9JiWHCBUGQG5nFKlRgSahkuym5FNbZitfRogj+vtBuHWvJ/jyCX9qdqR4LIKrqXS7USVQq78LlhDsiK89sRkr7P6rB+B140kNcsHgPynLbhGEdlCCu4rJJhHXSqYVHcZpFyHf50S2vMhDj/D42d6cI=
