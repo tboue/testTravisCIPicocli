@@ -1,6 +1,9 @@
 os: windows
 language: shell
 install:
+- echo $TRAVIS_COMMIT_MESSAGE
+- echo $TRAVIS_TAG
+- if [ -z "$TRAVIS_TAG" ]; then exit 0; fi
 - choco install zip unzip
 - choco install visualstudio2017-workload-vctools
 - choco install ant
@@ -36,6 +39,7 @@ script:
 before_deploy:
 - git config --local user.name "tboue"
 - git config --local user.email "theophane.boue@microej.com"
+- git commit --amend -m "test changing release message"
 
 deploy:
   provider: releases
