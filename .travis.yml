@@ -1,10 +1,6 @@
 os: windows
 language: shell
 
-env:
-  global:
-      secure: H0Y9wMRVVplDrzt7QCfHfrZ6SknAODJawqaHYA1rrC1itXbxe8WzQBenWav2iPZWrDPZDEV/Rtf/OqWHjWFIDrdCb9P+fE5DU8nNt2vmVP68O+Xr1r0+9L/2onT2wWGZo9w6ib3QJbrIWLrkONwzH9BK3hWU3P+6EdhFdn/TTNxQYIKi+XXf3LwDIuH4ekguRtZ3xIyBgy0Wf4BYhBuxU9UHruViVu72jwGj4PTNSet1Ga/XVDRJqsEYvMzvN/st0q5xyXPIhec61jUt6G+QfVk85bSApW3xXmbScklnuv9hnBQ4o1x69sUWxjzeaR/EJxQzihzB+js9qc9Ryjh555ZG3CevUUT6I2NhpfnpRzq5dpQ8O+8Ca9NQmgzo/N4Ersjz5eSMS+jHa+cmxY7/c1I0pcym1rw/MdEmi02cKZ/VnbQaZXmQqEGAdQRzDVQxP0hAE+kgR3R6sKoUjPC1xSE57uodpw1kWJl9Qo6X8poxG8/aTQePl0Q+QLsvSMtuIBaYOf/UwnxOnT80CDDbew7Y+HZG4pnaIzgWfv6KaG2O1yL4iKzSXQhiKMgXTCEIyC+6rGjBxX6S1Pvcy2eyelef8v5y++b9MYBBh1dwCafx4tgfLwoPAPCsloQBjmxeM2A1ee4Z/AIsf/18aRdmtGd98mo6z9Ruv38buwjBMNc=
-
 install:
   # Install GraalVM with SDKMAN
   - choco install zip unzip
@@ -54,7 +50,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key: 
-     secure: $GITHUB_TOKEN
+     secure: $GITHUB_KEY 
   file_glob: true
   file: 
   - executables/**.exe
