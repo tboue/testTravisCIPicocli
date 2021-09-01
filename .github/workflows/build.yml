@@ -43,6 +43,6 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-            target~/executables/*.exe
-            target~/executables/*.jar
-            target~/executables/*.sha256
+            picocliExampleProject/target~/executables/*.exe
+            picocliExampleProject/target~/executables/*.jar
+            picocliExampleProject/target~/executables/*.sha256
