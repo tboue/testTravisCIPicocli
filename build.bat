@@ -20,15 +20,6 @@ java -agentlib:native-image-agent=config-merge-dir=META-INF/native-image -jar pr
 
 type .\META-INF\native-image\resource-config.json
 
-SET buffpath=%PATH%
-
-setx /M PATH %graalInstallDir%%graalVMName%\bin\
-
-echo %PATH%
-
-call RefreshEnv.cmd
-
-echo %PATH%
 
 call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
 
@@ -40,6 +31,3 @@ echo "graal build ended"
 
 echo "upx compression ended"
 
-setx /M "PATH=%graalInstallDir%%graalVMName%\bin\;%buffpath%"
-
-call RefreshEnv.cmd
