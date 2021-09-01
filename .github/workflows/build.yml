@@ -11,13 +11,13 @@ jobs:
       - run: cd ${{ github.workspace }}
       - run: echo "🎉 Installs 🎉"
       - name: Setup script
-        run: .\picocliExampleProject\setup.bat
+        run: .\setup.bat
       
       - name: Build
         run: |
           echo $(ant -version)
           ant .\picocliExampleProject\build.xml
-          .\picocliExampleProject\build.bat
+          .\build.bat
         
       - name: Computing checksum
         run: |
