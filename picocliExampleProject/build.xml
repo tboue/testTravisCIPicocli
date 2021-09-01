@@ -14,16 +14,16 @@
     <property name="main.jar.build.dir" value="${build.dir}/executables"/>
       
     <path id="picocliExampleProject.classpath">
-        <pathelement location="lib/picocli-4.6.1.jar"/>
+        <pathelement location="./lib/picocli-4.6.1.jar"/>
     </path>
     
     <target name="compile">
       <mkdir dir="${main.build.dir}"/>
-      <echo message="Build dd ..." />
+      <echo message="Build ..." />
       <javac debug="true"  srcdir="${main.src.dir}" destdir="${main.build.dir}"  includeantruntime="false">
         <classpath refid="picocliExampleProject.classpath"/>
       </javac>
-      <echo message="Build dd done" />
+      <echo message="Build done" />
     </target>
   
     <target name="build-jar" depends="compile">
@@ -33,7 +33,7 @@
         <attribute name="Main-Class" value="picocliExampleProject.PrimeDecomposition"/>
         <attribute name="Class-Path" value="."/>
       </manifest>
-      <fileset dir="./bin"/>
+      <fileset dir="${main.build.dir}"/>
       <zipfileset excludes="META-INF/*.SF" src="lib/picocli-4.6.1.jar"/>
       </jar>
     </target>
