@@ -1,0 +1,44 @@
+name: GitHub Actions Ant GraalVM Build
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: windows-2019
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - name: Check out repository code
+        uses: actions/checkout@v2
+        
+      - run: cd ${{ github.workspace }}
+      - run: echo "🎉 Installs 🎉"
+      - name: Setup script
+        run: .\setup.bat
+      
+      - name: Build
+        run: |
+          echo $(ant -version)
+          ant
+          .\build.bat
+        
+      - name: Computing checksum
+        run: |
+          echo "🎉 Computing cheksums 🎉"
+          cd target~
+          cd executables
+          sha256sum primeDecomposition.jar > primeDecomposition.jar.sha256
+          sha256sum primeDecomposition.exe > primeDecomposition.exe.sha256
+          ls -R
+          cd ..
+          cd ..
+
+      - run: echo "🎉 Deploy to release 🎉"        
+      - name: Deploy
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: |
+            target~/executables/*.exe
+            target~/executables/*.jar
+            target~/executables/*.sha256
