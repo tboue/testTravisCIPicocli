@@ -27,7 +27,8 @@ call native-image.cmd --verbose --initialize-at-build-time --static --no-fallbac
 
 echo "graal build ended"
 
-.\upx-3.96-win64\upx.exe .\primeDecomposition.exe
+
+.\..\..\upx-3.96-win64\upx.exe .\primeDecomposition.exe
 
 echo "upx compression ended"
 
