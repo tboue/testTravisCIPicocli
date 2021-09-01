@@ -9,7 +9,7 @@
     <property name="target" value="1.8"/>
     <property name="source" value="1.8"/>
     <property name="build.dir" value="./target~"></property>
-    <property name="main.build.dir" value="${build.dir}"/>
+    <property name="main.build.dir" value="${build.dir}/bin"/>
     <property name="main.src.dir" value="./src" />
     <property name="main.jar.build.dir" value="${build.dir}/executables"/>
       
