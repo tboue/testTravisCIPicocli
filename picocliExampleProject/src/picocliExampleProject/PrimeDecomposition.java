@@ -16,11 +16,14 @@ class PrimeDecomposition implements Callable<Integer> {
 	@Override
 	public Integer call() throws Exception {
 		ArrayList<String> primeList = new ArrayList<String>();
+		long time = System.nanoTime();
 		getListGreaterPrime(primeList, number);
 		System.out.print("Prime Decomposition : ");
 		for (String e : primeList) {
 			System.out.print(e + " ");
 		}
+		time = System.nanoTime()-time;
+		System.out.println("done in "+(float) time/1000000+"ms");
 		return 0;
 	}
 
@@ -30,7 +33,9 @@ class PrimeDecomposition implements Callable<Integer> {
 		double rootToTest = Math.sqrt(numberToTest);
 		double i = 2;
 		double division = (numberToTestDBL / i);
-		while ((rootToTest <= division) && isPrime) {
+		
+		//2 is test then we won't have to re test pair numbers 
+		if((rootToTest <= division) && isPrime){
 			division = (numberToTestDBL / i);
 			if (division % 1 == 0) {
 				isPrime = false;
@@ -38,6 +43,16 @@ class PrimeDecomposition implements Callable<Integer> {
 				getListGreaterPrime(primeList, (long) division);
 			}
 			i++;
+		}
+		
+		while ((rootToTest <= division) && isPrime) {
+			division = (numberToTestDBL / i);
+			if (division % 1 == 0) {
+				isPrime = false;
+				getListGreaterPrime(primeList, (long) i);
+				getListGreaterPrime(primeList, (long) division);
+			}
+			i+=2;
 		}
 		if (isPrime) {
 			primeList.add(String.valueOf(numberToTest));
