@@ -34,11 +34,11 @@ if not exist  %graalInstallDir%%graalVMName% (
 REM native-image
 REM ------------
 
-gu.cmd install native-image
+call gu.cmd install native-image
 
 REM install upx
 
-if not exist  upx-3.96-win64 (
+if not exist upx-3.96-win64 (
     if not exist upx-3.96-win64.zip.zip ( 
         curl -# -L -O https://github.com/upx/upx/releases/download/v3.96/upx-3.96-win64.zip
     ) else (
