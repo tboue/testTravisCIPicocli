@@ -11,17 +11,18 @@ jobs:
       - run: cd ${{ github.workspace }}
       - run: echo "🎉 Installs 🎉"
       - name: Setup script
-        run: .\setup.bat
+        run: .\picocliExampleProject\setup.bat
       
       - name: Build
         run: |
           echo $(ant -version)
-          ant
-          .\build.bat
+          ant .\picocliExampleProject\build.xml
+          .\picocliExampleProject\build.bat
         
       - name: Computing checksum
         run: |
           echo "🎉 Computing cheksums 🎉"
+          cd picocliExampleProject
           cd target~
           cd executables
           sha256sum primeDecomposition.jar > primeDecomposition.jar.sha256
