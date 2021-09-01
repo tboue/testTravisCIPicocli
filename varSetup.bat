@@ -17,7 +17,7 @@ SET "graalInstallDir=C:\Programmes\Java\"
 
 REM PATH
 
-setx /M PATH="%graalInstallDir%%graalVMName%\bin\;%PATH%"
+setx /M PATH="%graalInstallDir%%graalVMName%\bin"
 
 REM JAVA_HOME 
 
