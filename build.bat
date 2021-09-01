@@ -23,7 +23,7 @@ type .\META-INF\native-image\resource-config.json
 
 call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
 
-native-image.cmd --verbose --initialize-at-build-time --enable-url-protocols=http,https --static --no-fallback -H:+ReportExceptionStackTraces -jar primeDecomposition.jar
+call native-image.cmd --verbose --initialize-at-build-time --static --no-fallback -jar primeDecomposition.jar
 
 echo "graal build ended"
 
