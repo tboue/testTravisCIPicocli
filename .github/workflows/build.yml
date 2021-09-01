@@ -15,8 +15,11 @@ jobs:
       
       - name: Build
         run: |
+          ls -R
           echo $(ant -version)
-          ant .\picocliExampleProject\build.xml
+          cd picocliExampleProject
+          ant
+          cd ..
           .\build.bat
         
       - name: Computing checksum
